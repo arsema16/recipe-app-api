@@ -7,7 +7,7 @@ import job from "./config/cron.js";
 
 // Load environment variables from .env
 dotenv.config();
-if(ENV.NODE_ENV==="Production") job.start();
+if (process.env.NODE_ENV === "Production") job.start();
 const app = express();
 const PORT = process.env.PORT || 8001;
 
