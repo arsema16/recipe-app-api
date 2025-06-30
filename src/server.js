@@ -3,10 +3,11 @@ import dotenv from "dotenv";
 import { db } from "./config/db.js";
 import { favoritesTable } from "./db/schema.js";
 import { and, eq } from "drizzle-orm";
+import job from "./config/cron.js";
 
 // Load environment variables from .env
 dotenv.config();
-
+if(ENV.NODE_ENV==="Production") job.start();
 const app = express();
 const PORT = process.env.PORT || 8001;
 
